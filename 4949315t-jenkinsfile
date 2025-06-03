@@ -59,12 +59,6 @@ pipeline {
 		
         stage('ST4-Parallel-4949315t') {
 		parallel {
-		        stage('') {
-		            steps {
-		                echo "ST4-Parallel-4949315t: SQLI Check Completed"
-		            }
-		        }
-
 		        stage('ST4A-4949315t') {
 		            steps {
 		                echo "ST4A-4949315t: SQLI Check Completed"
