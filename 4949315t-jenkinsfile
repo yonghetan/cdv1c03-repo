@@ -1,0 +1,73 @@
+pipeline {
+
+    agent {
+        node {
+            label 'master'
+        }
+    }
+
+    tools { 
+        maven 'maven-4949315t' 
+    }
+
+    options {
+        buildDiscarder logRotator( 
+                    daysToKeepStr: '15', 
+                    numToKeepStr: '10'
+            )
+    }
+
+    environment {
+        APP_NAME = "TANYONGHE"
+        APP_ENV  = "DEV"
+    }
+
+    stages {
+        
+        stage('ST1-4949315t') {
+            steps {
+                echo "ST1-4949315t: Setup Release Environment Completed."
+            }
+        }
+		
+        stage('ST2-4949315t') {
+            steps {
+                echo "ST2-4949315t: Server1 is successfully created"
+            }
+        }
+		
+        stage('ST3-4949315t') {
+            steps {
+                echo "ST3-4949315t: Server1 is healthy – Health check done"
+            }
+        }
+		
+        stage('ST4-Parallel-4949315t') {
+            steps {
+                echo "ST4-Parallel-4949315t: Security Scrutinises"
+            }
+        }
+        stage('ST4A-4949315t') {
+            steps {
+                echo "ST4A-4949315t: SQLI Check Completed"
+            }
+        }
+        stage('ST4B-4949315t') {
+            steps {
+                echo "ST4B-4949315t: XSS Check Completed"
+            }
+        }
+		
+        stage('ST5-4949315t') {
+            steps {
+                echo "ST5-4949315t : Continue the pipeline."
+            }
+        }
+		
+        stage('ST6-4949315t') {
+            steps {
+                echo "ST6-4949315t : Ready for next phase"
+            }
+        }
+    }   
+}
