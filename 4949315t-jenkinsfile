@@ -58,19 +58,25 @@ pipeline {
         }
 		
         stage('ST4-Parallel-4949315t') {
-            steps {
-                echo "ST4-Parallel-4949315t: Security Scrutinises"
-            }
-        }
-        stage('ST4A-4949315t') {
-            steps {
-                echo "ST4A-4949315t: SQLI Check Completed"
-            }
-        }
-        stage('ST4B-4949315t') {
-            steps {
-                echo "ST4B-4949315t: XSS Check Completed"
-            }
+		parallel {
+		        stage('') {
+		            steps {
+		                echo "ST4-Parallel-4949315t: SQLI Check Completed"
+		            }
+		        }
+
+		        stage('ST4A-4949315t') {
+		            steps {
+		                echo "ST4A-4949315t: SQLI Check Completed"
+		            }
+		        }
+
+		        stage('ST4B-4949315t') {
+		            steps {
+		                echo "ST4B-4949315t: XSS Check Completed"
+		            }
+		        }
+		}
         }
 		
         stage('ST5-4949315t') {
