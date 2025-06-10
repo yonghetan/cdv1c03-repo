@@ -36,8 +36,8 @@ pipeline {
                     // Remove existing container if it exists
                     sh """
                         if docker container inspect server1-4949315t >/dev/null 2>&1; then
-                            docker stop server1-4545315t
-                            docker rm server1-4545315t
+                            docker stop server1-4949315t
+                            docker rm server1-4949315t
                         fi
                     """
                     
