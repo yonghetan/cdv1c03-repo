@@ -81,7 +81,7 @@ pipeline {
                         message: 'Continue the pipeline?', 
                         parameters: [
                             choice(
-                                name: 'PROCEED_OR_ABORT',
+                                name: '',
                                 choices: ['Proceed', 'Abort'],
                                 description: 'Choose whether to continue the pipeline'
                             )
