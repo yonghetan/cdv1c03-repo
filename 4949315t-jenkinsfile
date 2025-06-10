@@ -75,7 +75,23 @@ pipeline {
 		
         stage('ST5-4949315t') {
             steps {
-                echo "ST5-4949315t : Continue the pipeline."
+               script {
+                    def userInput = input(
+                        id: 'userInput', 
+                        message: 'Continue the pipeline?', 
+                        parameters: [
+                            choice(
+                                name: 'PROCEED_OR_ABORT',
+                                choices: ['Proceed', 'Abort'],
+                                description: 'Choose whether to continue the pipeline'
+                            )
+                        ]
+                    )
+                    if (userInput == 'Abort') {
+                        currentBuild.result = 'ABORTED'
+                        error('Pipeline was aborted by user')
+                    }
+		}
             }
         }
 		
