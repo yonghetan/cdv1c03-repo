@@ -42,7 +42,7 @@ pipeline {
                     """
                     
                     // Create and run new container
-                    sh "docker run -d -it --name svr-4949315t -p 32700:80 svr-image-4949315t /bin/sh -c \"catalina.sh run\""
+                    sh "docker run -d -it --name svr-4949315t -p 32700:80 svr-image-4949315t /bin/sh"
                     
                     // Verify container is running
                     sh "docker ps -f name=svr-4949315t"
